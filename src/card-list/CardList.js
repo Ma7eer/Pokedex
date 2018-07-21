@@ -1,9 +1,12 @@
+import React from 'react';
 import Card from '../card/Card';
 
-export default CardList = (props) => {
+const CardList = (props) => {
   return (
     <div>
-      <Card />
+      {props.data.map((card) => <Card img={card.img} name={card.name} id={card.id}/>)}
     </div>
   )
 }
+
+export default CardList

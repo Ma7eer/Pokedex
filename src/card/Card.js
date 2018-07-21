@@ -1,9 +1,15 @@
-export default Card = (props) => {
+import React from 'react';
+
+const Card = (props) => {
   return (
     <div>
-      <img alt="pokemon name" src="http://placehold.it/75" />>
-      <div>Pokemon ID...</div>
-      <div>Pokemon name...</div>
+      <img alt="pokemon spite" src={props.img} />
+      <div>
+        <div>{props.id}</div>
+        <div>{props.name}</div>
+      </div>
     </div>
   )
 }
+
+export default Card
