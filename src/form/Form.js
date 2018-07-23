@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 
 export default class Form extends Component {
   state = {
@@ -6,23 +7,17 @@ export default class Form extends Component {
   }
   handleSubmit = (event) => {
     event.preventDefault();
-    // console.log("Pokemon data!!", this.state.pokemonName);
 
     const url = `https://pokeapi.co/api/v2/pokemon/${this.state.pokemonName}/`;
 
-    // http request using fetch
-    fetch( url,
-    {method: 'GET', mode: 'no-cors'})
-      .then((res) => {
-         return console.log(res);
-      })
-      // .then((resJson) => {
-      //   console.log(resJson);
-      //   return;
-      // })
+    Axios.get(url)
+      .then(res => {
+        console.log(res.data);
+        this.props.onSubmit(res.data);
+        this.setState({pokemonName: ''});
+      });
+    }
 
-
-  }
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
