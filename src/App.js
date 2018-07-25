@@ -22,10 +22,18 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Form />
-        <CardList data={this.state.data}/>
-      </div>
+        <div>
+          <div className="container my-container">
+            <h1 className="mt-4">Pokedex</h1>
+          </div>
+
+          <div className="container my-container">
+            <Form />
+            <CardList data={this.state.data}/>
+          </div>
+        </div>
+
+
     )
   }
 }
