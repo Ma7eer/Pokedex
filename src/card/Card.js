@@ -2,12 +2,14 @@ import React from 'react';
 
 const Card = (props) => {
   return (
-      <div className="card px-5 mx-4 text-white bg-dark mb-3" style={{width: '15rem'}}>
-        <img className="card-img-top" alt="pokemon sprite" src={props.img} />
-        <div className="card-body">
-          <div>{props.id}</div>
-          <div>{props.name}</div>
+    <div style={{margin: '1em'}} className="bg-dark p-4">
+      <img width="140" src={props.spriteImgUrl}/>
+      <div style={{display: 'inline-block', marginLeft: 10}}>
+        <div style={{fontSize: '1.25em', fontWeight: 'bold'}}>
+        {props.name}
         </div>
+        <div>Pokedex ID: {props.id}</div>
+      </div>
       </div>
   )
 }

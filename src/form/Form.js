@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 
 export default class Form extends Component {
   state = {
@@ -9,20 +10,14 @@ export default class Form extends Component {
 
     const url = `https://pokeapi.co/api/v2/pokemon/${this.state.pokemonName}/`;
 
-    // http request using fetch
-    fetch( url,
-    {method: 'GET', mode: 'no-cors', headers: {
-      'content-type': 'application/json', redirect: 'follow'
-  }})
-      .then((res) => { // data already a javaScript object so no need to parse
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+    Axios.get(url)
+      .then(res => {
+        console.log(res.data);
+        this.props.onSubmit(res.data);
+        this.setState({pokemonName: ''});
+      });
+    }
 
-
-  }
   render () {
     return (
       <form onSubmit={this.handleSubmit} className="d-flex align-items-center px-5">
