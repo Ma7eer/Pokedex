@@ -8,7 +8,7 @@ export default class Form extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    const url = `https://pokeapi.co/api/v2/pokemon/${this.state.pokemonName}/`;
+    const url = `https://pokeapi.co/api/v2/pokemon/${this.state.pokemonName.toLocaleLowerCase()}/`;
 
     Axios.get(url)
       .then(res => {

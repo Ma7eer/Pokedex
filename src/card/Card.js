@@ -3,7 +3,7 @@ import React from 'react';
 const Card = (props) => {
   return (
     <div style={{margin: '1em'}} className="bg-dark p-4">
-      <img width="140" src={props.spriteImgUrl}/>
+      <img width="140" src={props.spriteImgUrl} alt=""/>
       <div style={{display: 'inline-block', marginLeft: 10}}>
         <div style={{fontSize: '1.25em', fontWeight: 'bold'}}>
         {props.name}
