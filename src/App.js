@@ -13,12 +13,20 @@ class App extends Component {
         {
           spriteImgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
           id: "1",
-          name: "bulbasaur"
+          name: "bulbasaur",
+          type: "poison"
         },
         {
-          spriteImgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/500.png",
-          id: "500",
-          name: "emboar"
+          spriteImgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+          id: "4",
+          name: "charmander",
+          type: "fire"
+        },
+        {
+          spriteImgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+          id: "7",
+          name: "squirtle",
+          type: "water"
         }
       ]
     };
@@ -37,7 +45,8 @@ class App extends Component {
     return {
       name: apiResponse.name,
       id: apiResponse.id,
-      spriteImgUrl: apiResponse.sprites.front_shiny
+      spriteImgUrl: apiResponse.sprites.front_shiny,
+      type: apiResponse.types[0].type.name
     };
   }
 

@@ -9,6 +9,7 @@ const Card = (props) => {
         {props.name}
         </div>
         <div>Pokedex ID: {props.id}</div>
+        <div>Type: {props.type}</div>
       </div>
       </div>
   )
