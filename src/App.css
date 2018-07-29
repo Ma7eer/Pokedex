@@ -19,12 +19,12 @@ img {
 
 img:hover {
   cursor: pointer;
-  -ms-transform: scale(1.2); /* IE 9 */
-  -webkit-transform: scale(1.2); /* Safari */
+  -ms-transform: scale(1.4); /* IE 9 */
+  -webkit-transform: scale(1.4); /* Safari */
   transform: scale(1.4);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1125px) {
   .my-card {
     justify-content: center;
   }
