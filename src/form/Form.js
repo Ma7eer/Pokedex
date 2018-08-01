@@ -6,7 +6,6 @@ export default class Form extends Component {
     pokemonName: '',
     formClasses: "form-control col-12",
     errorMessage: "Opps! Please spell pokemon name correctly!"
-    // "Please enter a Pokemon's name"
   }
   handleSubmit = (event) => {
     event.preventDefault();
