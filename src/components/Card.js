@@ -10,6 +10,7 @@ const Card = (props) => {
         </div>
         <div>Pokedex ID: {props.id}</div>
         <div>Type: {props.type}</div>
+        <button type="button" className="btn btn-primary mt-4">Add to list</button>
       </div>
       </div>
   )

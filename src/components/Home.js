@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import '../App.css';
-import Form from '../form/Form.js';
-import CardList from '../card-list/CardList.js';
+import Form from './Form.js';
+import CardList from './CardList.js';
 
 class Home extends Component {
 
@@ -54,13 +53,6 @@ class Home extends Component {
   render() {
     return (
         <div>
-          <ul className="nav justify-content-end">
-            <li className="nav-item p-2">
-            <Link to="/mycardlist" className="nav-link active">
-              Go to my list
-            </Link>
-            </li>
-          </ul>
           <div className="container my-container">
             <h1 className="mt-4">Pokedex</h1>
           </div>

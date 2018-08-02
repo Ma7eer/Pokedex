@@ -39,7 +39,7 @@ img:hover {
 .nav-link:hover {
   /* font-weight: bold; */
   color: white;
-  transform: scale(1.2);
+  transform: scale(1.3);
 }
 
 /* code from Hover CSS: https://github.com/IanLunn/Hover , free for non commercial projects*/

@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import RouterComponent from './router/RouterComponent';
+import Routes from './routes/Routes.js';
+import Header from './components/Header.js';
 
 class App extends Component {
   render() {
-    return <RouterComponent />;
+    return (
+      <div>
+        <Header />
+        <Routes />
+      </div>
+    );
   }
 }
 
