@@ -54,9 +54,13 @@ class Home extends Component {
   render() {
     return (
         <div>
-          <button>
-            <Link to="/mycardlist">Go to my list</Link>
-          </button>
+          <ul className="nav justify-content-end">
+            <li className="nav-item p-2">
+            <Link to="/mycardlist" className="nav-link active">
+              Go to my list
+            </Link>
+            </li>
+          </ul>
           <div className="container my-container">
             <h1 className="mt-4">Pokedex</h1>
           </div>

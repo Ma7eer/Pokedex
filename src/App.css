@@ -31,6 +31,17 @@ img:hover {
   }
 }
 
+.nav-link {
+  color: white;
+  transition: all .2s ease-in-out;
+}
+
+.nav-link:hover {
+  /* font-weight: bold; */
+  color: white;
+  transform: scale(1.2);
+}
+
 /* code from Hover CSS: https://github.com/IanLunn/Hover , free for non commercial projects*/
 
 @keyframes hvr-bob {
