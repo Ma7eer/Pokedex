@@ -1,14 +1,40 @@
-import React from 'react';
-import MyCard from './MyCard.js';
+import React, { Component } from 'react';
 
-const MyCardList = (props) => {
+const Data = () => {
+  let localData = localStorage.getItem('data').replace(/\[/, '').replace(/\]/, '').split(','); //.slice(1)
   return (
+    // for data in localstorage pront on each h2 one item
     <div>
-      <h1>This is my pokemon list!</h1>
-      <h2>{localStorage.getItem('items').split()}</h2>
-      <MyCard />
+      {localData.map( data =>
+        <h2>{data}</h2>
+      )
+      }
     </div>
+
   )
+}
+
+class MyCardList extends Component {
+  constructor() {
+    super();
+    this.state = {
+      storedData: localStorage.getItem('data')
+    }
+  }
+  handleClick = () => {
+    localStorage.clear();
+    this.setState({ storedData: ''})
+    console.log(localStorage);
+  }
+  render() {
+    return (
+      <div>
+        <h1>This is my pokemon list!</h1>
+        { this.state.storedData ? (<Data />) : <h2>No data</h2> }
+        <button onClick={() => this.handleClick()}>Clear local storage</button>
+      </div>
+    )
+  }
 }
 
 export default MyCardList;

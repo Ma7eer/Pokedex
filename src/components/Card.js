@@ -1,14 +1,17 @@
 import React from 'react';
 
+// insert the array of items created into our local storage
+// localStorage.setItem('items', JSON.stringify(itemsArray));
+// const data = JSON.parse(localStorage.getItem('items'));
 
-let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+const handleClick = (pokemonArray) => {
+  /* create an array that will either be an empty array or
+  will be all the items listed in our local storage from a previous session */
+  let localStorageArray = localStorage.getItem('data') ? JSON.parse(localStorage.getItem('data')) : [];
 
-localStorage.setItem('items', JSON.stringify(itemsArray));
-const data = JSON.parse(localStorage.getItem('items'));
+  localStorageArray.push.apply(localStorageArray, pokemonArray); // pushes data received from our card into our itemsArray
 
-const handleClick = (name) => {
-  itemsArray.push(name);
-  localStorage.setItem('items', JSON.stringify(itemsArray));
+  localStorage.setItem('data', JSON.stringify(localStorageArray)); // adds that data from card into the local storage
   console.log(localStorage);
 }
 
@@ -23,7 +26,7 @@ const Card = (props) => {
         </div>
         <div>Pokedex ID: {props.id}</div>
         <div>Type: {props.type}</div>
-        <button onClick={() => handleClick(props.name)} type="button" className="btn btn-primary mt-4">Add to list</button>
+        <button onClick={() => handleClick([props.spriteImgUrl, props.name, props.id, props.type])} type="button" className="btn btn-primary mt-4">Add to list</button>
       </div>
       </div>
   )
