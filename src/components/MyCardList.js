@@ -3,14 +3,12 @@ import React, { Component } from 'react';
 const Data = () => {
   let localData = localStorage.getItem('data').replace(/\[/, '').replace(/\]/, '').split(','); //.slice(1)
   return (
-    // for data in localstorage pront on each h2 one item
+    // for data in localStorage print on each h2 one item
     <div>
-      {localData.map( data =>
-        <h2>{data}</h2>
-      )
-      }
+      {localData.map( (data, i) =>
+        <h2 key={i} >{data}</h2>
+      )}
     </div>
-
   )
 }
 

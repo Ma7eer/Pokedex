@@ -12,7 +12,15 @@ const handleClick = (pokemonArray) => {
   localStorageArray.push.apply(localStorageArray, pokemonArray); // pushes data received from our card into our itemsArray
 
   localStorage.setItem('data', JSON.stringify(localStorageArray)); // adds that data from card into the local storage
-  console.log(localStorage);
+  // console.log(localStorage);
+
+  // Map method
+  let myMap = new Map();
+  myMap.set(pokemonArray[0], [pokemonArray[1], pokemonArray[2], pokemonArray[3]])
+  myMap.forEach((val, key) => {
+    localStorage.setItem(key, val);
+    console.log(localStorage);
+  });
 }
 
 const Card = (props) => {
@@ -26,7 +34,7 @@ const Card = (props) => {
         </div>
         <div>Pokedex ID: {props.id}</div>
         <div>Type: {props.type}</div>
-        <button onClick={() => handleClick([props.spriteImgUrl, props.name, props.id, props.type])} type="button" className="btn btn-primary mt-4">Add to list</button>
+        <button onClick={() => handleClick([props.id, props.spriteImgUrl, props.name, props.type])} type="button" className="btn btn-primary mt-4">Add to list</button>
       </div>
       </div>
   )
