@@ -1,25 +1,12 @@
 import React from 'react';
 
-// insert the array of items created into our local storage
-// localStorage.setItem('items', JSON.stringify(itemsArray));
-// const data = JSON.parse(localStorage.getItem('items'));
 
 const handleClick = (pokemonArray) => {
-  /* create an array that will either be an empty array or
-  will be all the items listed in our local storage from a previous session */
-  let localStorageArray = localStorage.getItem('data') ? JSON.parse(localStorage.getItem('data')) : [];
-
-  localStorageArray.push.apply(localStorageArray, pokemonArray); // pushes data received from our card into our itemsArray
-
-  localStorage.setItem('data', JSON.stringify(localStorageArray)); // adds that data from card into the local storage
-  // console.log(localStorage);
-
-  // Map method
   let myMap = new Map();
   myMap.set(pokemonArray[0], [pokemonArray[1], pokemonArray[2], pokemonArray[3]])
   myMap.forEach((val, key) => {
     localStorage.setItem(key, val);
-    console.log(localStorage);
+    console.log(localStorage.getItem(1));
   });
 }
 
