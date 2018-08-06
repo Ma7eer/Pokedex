@@ -18,8 +18,7 @@ export default class Form extends Component {
         this.props.onSubmit(res.data);
         this.setState({pokemonName: '', formClasses: "form-control col-12"});
       }).catch(error => {
-        if(error.request) {
-          if(this.state.pokemonName === '') {
+        if(error.request && this.state.pokemonName === '') {
             this.setState(prevState => ({
               formClasses: "is-invalid " + prevState.formClasses,
               errorMessage: "Please enter a Pokemon's name!"
@@ -27,12 +26,13 @@ export default class Form extends Component {
             console.log(error);
           } else {
             this.setState(prevState => ({
-              formClasses: "is-invalid " + prevState.formClasses
+              formClasses: "is-invalid " + prevState.formClasses,
+              errorMessage: "Opps! Please spell pokemon name correctly!"
             }))
             console.log(error);
           }
         }
-      });
+      );
     }
 
   render () {

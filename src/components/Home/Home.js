@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
-import '../App.css';
-import Form from './Form.js';
-import CardList from './CardList.js';
+import '../../App.css';
+import Form from './Form';
+import CardList from './CardList';
+import transformApiData from '../api/api.js';
 
-class Home extends Component {
+export default class Home extends Component {
 
-  constructor() {
-    super();
-    this.state = {
+  state = {
       data: [
         {
           spriteImgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
@@ -30,25 +29,14 @@ class Home extends Component {
         }
       ]
     };
-  }
 
   addNewPokemon = (pokemonInfo) => {
-    let mappedPokemonInfo = this.transformApiData(pokemonInfo);
+    let mappedPokemonInfo = transformApiData(pokemonInfo);
 
     this.setState(prevState => ({
       data: prevState.data.concat(mappedPokemonInfo)
     }));
   };
-
-  // TODO: This could be moved to somewhere more API specific.
-  transformApiData(apiResponse) {
-    return {
-      name: apiResponse.name,
-      id: apiResponse.id,
-      spriteImgUrl: apiResponse.sprites.front_shiny,
-      type: apiResponse.types[0].type.name
-    };
-  }
 
   render() {
     return (
@@ -65,5 +53,3 @@ class Home extends Component {
     )
   }
 }
-
-export default Home;

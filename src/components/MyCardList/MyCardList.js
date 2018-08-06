@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Data from './Data';
-class MyCardList extends Component {
+export default class MyCardList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,5 +22,3 @@ class MyCardList extends Component {
     )
   }
 }
-
-export default MyCardList;

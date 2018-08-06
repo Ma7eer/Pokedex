@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import Routes from './routes/Routes.js';
-import Header from './components/Header.js';
+import Routes from './routes/Routes';
+import Header from './components/Header/Header';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div>
@@ -14,5 +14,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

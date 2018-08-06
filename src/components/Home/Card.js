@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import styles from './typeColors.css';
 
-class Card extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+export default class Card extends Component {
+  state = {
       typeObject: {
         'normal': '#a8a878', 'fire': '#f08030',
         'fighting': '#c03028', 'water': '#6890f0',
@@ -17,7 +14,8 @@ class Card extends Component {
         'steel': '#b8b8d0', 'fairy': '#ee99ac'
       }
     }
-  }
+
+  // store pokemon data to local Storage
   handleClick (pokemonArray) {
     let myMap = new Map();
     myMap.set(pokemonArray[0], [pokemonArray[1], pokemonArray[2], pokemonArray[3]])
@@ -45,5 +43,3 @@ class Card extends Component {
   )
 }
 }
-
-export default Card;
