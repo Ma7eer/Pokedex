@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardList Component Should pass if data is fed into it 1`] = `
+<div
+  className="d-flex flex-wrap mt-4 align-items-center justify-content-center my-card"
+>
+  <div
+    className="bg-dark p-4"
+    style={
+      Object {
+        "margin": "1em",
+      }
+    }
+  >
+    <img
+      alt=""
+      className="hvr-bob"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+      width="180"
+    />
+    <div
+      style={
+        Object {
+          "display": "inline-block",
+          "marginLeft": 10,
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "fontSize": "1.25em",
+            "fontWeight": "bold",
+          }
+        }
+      >
+        bulbasaur
+      </div>
+      <div>
+        Pokedex ID: 
+        1
+      </div>
+      <div
+        className="rounded d-flex justify-content-center mt-2"
+        style={
+          Object {
+            "background": "#a040a0",
+          }
+        }
+      >
+        Type: 
+        poison
+      </div>
+      <button
+        className="btn btn-primary mt-3"
+        onClick={[Function]}
+        type="button"
+      >
+        Add to list
+      </button>
+    </div>
+  </div>
+</div>
+`;
