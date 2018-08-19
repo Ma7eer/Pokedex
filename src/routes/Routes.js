@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
-import MyCardList from '../components/MyCardList';
+import MyCardList from '../components/MyCardListPage';
 import Home from '../components/HomePage';
 
 const Routes = (props) => {
