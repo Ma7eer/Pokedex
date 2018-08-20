@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import PropTypes from 'prop-types';
 import toastr from 'toastr';
+import { connect } from 'react-redux';
 
-export default class Form extends Component {
-  state = {
-    pokemonName: ''
+class Form extends Component {
+  // state = {
+  //   pokemonName: ''
+  // }
+  handleChange = (event) => {
+    return this.props.dispatch({type: event.target.value});
   }
   handleSubmit = (event) => {
     event.preventDefault();
 
-    const url = `https://pokeapi.co/api/v2/pokemon/${this.state.pokemonName.toLocaleLowerCase()}/`;
+    const url = `https://pokeapi.co/api/v2/pokemon/${this.props.pokemonName.toLocaleLowerCase()}/`;
 
     Axios.get(url)
       .then(res => {
@@ -19,7 +23,7 @@ export default class Form extends Component {
         toastr.success("Yay! new Pokemon");
         this.setState({pokemonName: ''});
       }).catch(error => {
-        if(error.request && this.state.pokemonName === '') {
+        if(error.request && this.props.pokemonName === '') {
           toastr.warning("Please enter a Pokemon's name!");
             console.log(error);
           } else {
@@ -34,8 +38,8 @@ export default class Form extends Component {
     return (
       <form onSubmit={this.handleSubmit} className="d-flex align-items-center px-5" noValidate>
         <div className="input-group row pt-4 pb-3 mt-5 my-row align-items-center">
-            <input className="form-control col-12" type="text" placeholder="Pokemon name or ID" value={this.state.pokemonName}
-            onChange={(event) => this.setState({ pokemonName: event.target.value})} required/>
+            <input className="form-control col-12" type="text" placeholder="Pokemon name or ID" value={this.props.pokemonName}
+            onChange={this.handleChange} required/>
           <div className={"input-group-append"}>
             <button className="form-control btn btn-danger" type="submit">Submit</button>
           </div>
@@ -46,5 +50,14 @@ export default class Form extends Component {
 }
 
 Form.propTypes = {
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
+  pokemonName: PropTypes.string
 }
+
+function mapStateToProps(state) {
+  return {
+    pokemonName: state.pokemonName
+  };
+}
+
+export default connect(mapStateToProps)(Form);

@@ -5,7 +5,7 @@ import Form from './Form';
 import CardList from './CardList';
 import transformApiData from '../api/api.js';
 
-export default class Home extends Component {
+class Home extends Component {
 
   state = {
       data: [
@@ -53,3 +53,5 @@ export default class Home extends Component {
     )
   }
 }
+
+export default Home;
