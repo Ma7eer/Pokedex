@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Card from '../HomePage/Card';
 
 class Data extends Component {
   constructor(props) {
@@ -7,6 +8,7 @@ class Data extends Component {
       pokemonCard: 'has data'
     }
   }
+
   handleClick = (id) => {
     localStorage.removeItem(id);
     this.setState({pokemonCard: ''})
@@ -18,7 +20,7 @@ class Data extends Component {
 
     for(let i = 0; i < localStorage.length;i++) {
       if(localStorage.key(i)) {
-        id = localStorage.key(i);
+        id = parseInt(localStorage.key(i)); // id should be a number
         url = localStorage.getItem(id).split(',')[0];
         name = localStorage.getItem(id).split(',')[1];
         type = localStorage.getItem(id).split(',')[2];
@@ -31,11 +33,12 @@ class Data extends Component {
           {
             myArr.map((val, i) =>
               <div key ={i}>
-                <div>{val[0]}</div>
-                <div>{val[1]}</div>
-                <div>{val[2]}</div>
-                <div>{val[3]}</div>
-                <button>Delete</button>
+                <Card
+                  id={val[0]}
+                  spriteImgUrl={val[1]}
+                  name={val[2]}
+                  type={val[3]}
+                />
               </div>
            )
           }

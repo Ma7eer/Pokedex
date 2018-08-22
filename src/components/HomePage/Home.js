@@ -11,19 +11,19 @@ class Home extends Component {
       data: [
         {
           spriteImgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-          id: "1",
+          id: 1,
           name: "bulbasaur",
           type: "poison"
         },
         {
           spriteImgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-          id: "4",
+          id: 4,
           name: "charmander",
           type: "fire"
         },
         {
           spriteImgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-          id: "7",
+          id: 7,
           name: "squirtle",
           type: "water"
         }

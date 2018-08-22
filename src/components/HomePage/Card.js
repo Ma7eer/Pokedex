@@ -1,9 +1,10 @@
 import React from 'react';
 import { pokemonType } from './pokemonType';
 import PropTypes from 'prop-types';
+import toastr from 'toastr';
+import CardButton from './CardButton';
 
-
- const Card = (props) => {
+const Card = (props) => {
    // props
   const { spriteImgUrl, name, id, type } = props;
 
@@ -15,6 +16,7 @@ import PropTypes from 'prop-types';
       localStorage.setItem(key, val);
       console.log(localStorage.getItem(1));
     });
+    toastr.info('pokemon added to your list :]');
   }
 
   return (
@@ -28,7 +30,7 @@ import PropTypes from 'prop-types';
         <div style={pokemonType([type]) ? {background: pokemonType([type])} : {background: '#68a090'}}
         className="rounded d-flex justify-content-center mt-2">
         Type: {type}</div>
-        <button onClick={() => handleClick([id, spriteImgUrl, name, type])} type="button" className="btn btn-primary mt-3">Add to list</button>
+        <CardButton onClick={() => handleClick([id, spriteImgUrl, name, type])}/>
       </div>
     </div>
   )
@@ -37,7 +39,7 @@ import PropTypes from 'prop-types';
 Card.propTypes = {
   spriteImgUrl: PropTypes.string,
   name: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.number,
   type: PropTypes.string
 }
 

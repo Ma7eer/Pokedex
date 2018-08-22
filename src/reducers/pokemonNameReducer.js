@@ -1,12 +1,17 @@
+import { UPDATE_INPUT_FIELD } from '../actions/actionTypes';
+
 const initialState = {
   pokemonName: ''
 };
 
-export function reducer(state = initialState, action) {
-  if(!action.type.includes('redux')) {
-    return {
-      pokemonName: action.type
-    };
+export function pokemonNameReducer(state = initialState, action) {
+  switch (action.type) {
+    case UPDATE_INPUT_FIELD:
+      return {
+        pokemonName: action.pokemonName
+      };
+
+    default:
+      return state;
   }
-  return state;
 }

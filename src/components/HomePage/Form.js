@@ -3,31 +3,30 @@ import Axios from 'axios';
 import PropTypes from 'prop-types';
 import toastr from 'toastr';
 import { connect } from 'react-redux';
+import { updateInputField } from '../../actions/updateInputFieldAction';
 
 class Form extends Component {
-  // state = {
-  //   pokemonName: ''
-  // }
   handleChange = (event) => {
-    return this.props.dispatch({type: event.target.value});
+    return this.props.dispatch(updateInputField(event.target.value));
   }
+
   handleSubmit = (event) => {
     event.preventDefault();
 
-    const url = `https://pokeapi.co/api/v2/pokemon/${this.props.pokemonName.toLocaleLowerCase()}/`;
+    let userInput = this.props.pokemonName.toLocaleLowerCase();
+    const url = `https://pokeapi.co/api/v2/pokemon/${userInput}/`;
 
     Axios.get(url)
       .then(res => {
-        // console.log(res.data);
-        this.props.onSubmit(res.data);
-        toastr.success("Yay! new Pokemon");
-        this.setState({pokemonName: ''});
+        this.props.onSubmit(res.data); // return data from api
+        toastr.success("Yay! new Pokemon"); // show success message
+        this.props.dispatch(updateInputField('')); // dispatch change to redux store
       }).catch(error => {
         if(error.request && this.props.pokemonName === '') {
-          toastr.warning("Please enter a Pokemon's name!");
+          toastr.warning("Please enter a Pokemon's name!"); // show warning message
             console.log(error);
           } else {
-            toastr.error("Opps! Please spell pokemon name correctly!");
+            toastr.error("Opps! Please spell pokemon name correctly!"); // show error message
             console.log(error);
           }
         }

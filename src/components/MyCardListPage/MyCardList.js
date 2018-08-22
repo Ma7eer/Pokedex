@@ -7,6 +7,7 @@ class MyCardList extends Component {
       storedData: localStorage.length > 0 ? 'render data' : ''
     }
   }
+
   handleClick = () => {
     localStorage.clear();
     this.setState({storedData: ''})
@@ -16,7 +17,7 @@ class MyCardList extends Component {
     return (
       <div>
         <h1>This is my pokemon list!</h1>
-        { this.state.storedData !== '' ? (<Data />) : <h2>No data</h2> }
+        <div className="d-flex flex-wrap mt-4 align-items-center justify-content-center my-card">{ this.state.storedData !== '' ? (<Data />) : <h2>No data</h2> }</div>
         <button onClick={() => this.handleClick()}>Clear all</button>
       </div>
     )
