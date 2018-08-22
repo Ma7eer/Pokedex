@@ -15,4 +15,6 @@ npm install
 
 ```
 npm start
+// or if you hate noise
+npm start -s
 ```
