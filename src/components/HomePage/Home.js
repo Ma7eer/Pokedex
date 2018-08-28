@@ -47,7 +47,7 @@ class Home extends Component {
 
           <div className="container my-container">
             <Form onSubmit={this.addNewPokemon}/>
-            <CardList data={this.state.data}/>
+            <CardList data={this.state.data} />
           </div>
         </div>
     )

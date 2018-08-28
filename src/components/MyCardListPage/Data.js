@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Card from '../HomePage/Card';
+import Card from '../common/Card';
 
 class Data extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class Data extends Component {
 
     for(let i = 0; i < localStorage.length;i++) {
       if(localStorage.key(i)) {
-        id = parseInt(localStorage.key(i)); // id should be a number
+        id = parseInt(localStorage.key(i), 10); // id should be a number
         url = localStorage.getItem(id).split(',')[0];
         name = localStorage.getItem(id).split(',')[1];
         type = localStorage.getItem(id).split(',')[2];
