@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { FetchPokemonData } from '../../actions/loadPokemonAction';
+
+import { FetchPokemonData } from '../../actions/fetchPokemonAction';
 
 import '../../App.css';
 import Form from './Form';
 import CardList from './CardList';
-// import transformApiData from '../api/api.js';
 
 class Home extends Component {
   addNewPokemon = (url) => {
-    this.props.fetchData(url);
+    this.props.fetchPokemonData(url);
   }
 
   render() {
+    const { pokemonData } = this.props;
     return (
         <div>
           <div className="container my-container">
@@ -22,7 +23,7 @@ class Home extends Component {
 
           <div className="container my-container">
             <Form onSubmit={this.addNewPokemon} />
-            <CardList data={this.props.dataArray} />
+            <CardList data={pokemonData} />
           </div>
         </div>
     )
@@ -30,19 +31,19 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  dataArray: PropTypes.array,
-  fetchData: PropTypes.func
+  pokemonData: PropTypes.array,
+  fetchPokemonData: PropTypes.func
 }
 
 function mapStateToProps(state) {
   return {
-    dataArray: state.pokemonData
+    pokemonData: state.pokemonData
 }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchData: (url) => dispatch(FetchPokemonData(url))
+    fetchPokemonData: (url) => dispatch(FetchPokemonData(url))
 };
 }
 

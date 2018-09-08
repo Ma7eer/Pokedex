@@ -1,11 +1,10 @@
 import React from 'react';
-import { pokemonType } from '../HomePage/pokemonType';
 import PropTypes from 'prop-types';
 import toastr from 'toastr';
+import { pokemonType } from '../HomePage/pokemonType';
 import CardButton from './CardButton';
 
 const Card = (props) => {
-   // props
   const { spriteImgUrl, name, id, type } = props;
 
   // store pokemon data to local Storage
@@ -37,9 +36,12 @@ const Card = (props) => {
         </div>
         <div>Pokedex ID: {id}</div>
         <div style={pokemonType([type]) ? {background: pokemonType([type])} : {background: '#68a090'}}
-        className="rounded d-flex justify-content-center mt-2">
-        Type: {type}</div>
-        <CardButton onClick={() => handleAddClick([id, spriteImgUrl, name, type])} onDelete={() => {handleDeleteClick(id)}} homePath={props.homePath} id={id}/>
+        className="rounded d-flex justify-content-center mt-2">Type: {type}</div>
+        <CardButton
+          onClick={() => handleAddClick([id, spriteImgUrl, name, type])}
+          onDelete={() => {handleDeleteClick(id)}}
+          homePath={props.homePath}
+          id={id}/>
       </div>
     </div>
   )

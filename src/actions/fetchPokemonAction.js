@@ -1,7 +1,9 @@
 import * as Types from './actionTypes';
 import axios from 'axios';
 import toastr from 'toastr';
-import { updateInputField } from './updateInputFieldAction';
+import {
+  updateInputField
+} from './updateInputFieldAction';
 
 export function ajaxCallHasError(bool) {
   return {
@@ -9,20 +11,22 @@ export function ajaxCallHasError(bool) {
     hasError: bool
   };
 }
+
 export function ajaxCallIsLoading(bool) {
   return {
     type: Types.AJAX_CALL_IS_LOADING,
     isLoading: bool
   };
 }
-export function FetchPokemonDataSuccess(info) {
+
+export function FetchPokemonDataSuccess(data) {
   return {
     type: Types.FETCH_POKEMON_DATA_SUCCESS,
-    info: {
-      spriteImgUrl: info.sprites.front_shiny,
-      id: info.id,
-      name: info.name,
-      type: info.types[0].type.name
+    data: {
+      spriteImgUrl: data.sprites.front_shiny,
+      id: data.id,
+      name: data.name,
+      type: data.types[0].type.name
     }
   };
 }
@@ -35,16 +39,15 @@ export function FetchPokemonData(url) {
       .then((res) => {
         return dispatch(FetchPokemonDataSuccess(res.data));
       })
-      .then(()=> {
+      .then(() => {
         toastr.success("Yay! new Pokemon"); // show success message
         dispatch(ajaxCallIsLoading(false));
         return dispatch(updateInputField(''))
       })
       .catch(() => {
-            dispatch(ajaxCallIsLoading(false));
-            toastr.error("Opps! Please spell pokemon name correctly!"); // show error message
-            return dispatch(ajaxCallHasError(true));
-          }
-      );
+        dispatch(ajaxCallIsLoading(false));
+        toastr.error("Opps! Please spell pokemon name correctly!"); // show error message
+        return dispatch(ajaxCallHasError(true));
+      });
   };
 }

@@ -5,11 +5,17 @@ const CardButton = (props) => {
   const { homePath, onClick, onDelete } = props;
   if(homePath) {
     return (
-      <button onClick={onClick} type="button" className="btn btn-primary mt-3">Add to list</button>
+      <button
+        onClick={onClick}
+        type="button"
+        className="btn btn-primary mt-3">Add to list</button>
     );
   } else {
     return (
-      <button onClick={onDelete} type="button" className="btn btn-danger mt-3">Delete</button>
+      <button
+        onClick={onDelete}
+        type="button"
+        className="btn btn-danger mt-3">Delete</button>
     );
   }
 }

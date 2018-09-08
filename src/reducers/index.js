@@ -8,7 +8,3 @@ export default combineReducers({
   ajaxCallIsLoading,
   pokemonData
 });
-
-// {
-//   pokemonNameReducer
-// };

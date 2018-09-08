@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-// import Axios from 'axios';
 import PropTypes from 'prop-types';
 import toastr from 'toastr';
 import { connect } from 'react-redux';
+
 import { updateInputField } from '../../actions/updateInputFieldAction';
-import { ajaxCallIsLoading } from '../../actions/loadPokemonAction';
+import { ajaxCallIsLoading } from '../../actions/fetchPokemonAction';
+
 import LoadingSpinner from '../common/LoadingSpinner';
 
 class Form extends Component {
-  state = {
-    loading: false
-  }
-
   handleChange = (event) => {
     return this.props.getUserInput(event.target.value);
   }
@@ -28,7 +25,8 @@ class Form extends Component {
       return;
     }
 
-      this.props.onSubmit(url);
+    // dispatch action to make ajax call through redux
+    this.props.onSubmit(url);
     }
 
   render () {
@@ -36,9 +34,13 @@ class Form extends Component {
     return (
       <form onSubmit={this.handleSubmit} className="d-flex align-items-center px-5" noValidate>
         <div className="input-group row pt-4 pb-3 mt-5 my-row align-items-center">
-            <input className="form-control col-12" type="text" placeholder="Pokemon name or ID" value={pokemonName}
-            onChange={this.handleChange} required/>
-          <div className={"input-group-append"}>
+            <input
+              className="form-control col-12"
+              type="text"
+              placeholder="Pokemon name or ID"
+              value={pokemonName}
+              onChange={this.handleChange} required/>
+          <div className="input-group-append">
             <button className="form-control btn btn-danger" type="submit">{this.props.loading ? <LoadingSpinner />: <span>Submit</span>}</button>
           </div>
         </div>
@@ -50,8 +52,7 @@ class Form extends Component {
 Form.propTypes = {
   onSubmit: PropTypes.func,
   pokemonName: PropTypes.string,
-  getUserInput: PropTypes.func,
-  fetchPokemonData: PropTypes.func
+  getUserInput: PropTypes.func
 }
 
 function mapStateToProps(state) {

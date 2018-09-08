@@ -49,7 +49,7 @@ copyState();
 export function pokemonData(state = initialState, action) {
     switch (action.type) {
       case Types.FETCH_POKEMON_DATA_SUCCESS:
-          return state.concat(action.info);
+          return state.concat(action.data);
       default:
           return state;
   }

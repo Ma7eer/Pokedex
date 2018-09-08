@@ -1,6 +1,7 @@
 import React from 'react';
-import Card from '../common/Card';
 import PropTypes from 'prop-types';
+
+import Card from '../common/Card';
 
 const CardList = (props) => {
   const { data } = props;
