@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import MyCardList from '../components/MyCardListPage';
 import Home from '../components/HomePage';
 
-const Routes = (props) => {
+const Routes = () => {
      return(
        <main>
         <Switch>

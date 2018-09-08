@@ -1,6 +1,14 @@
-import { pokemonNameReducer } from './pokemonNameReducer';
-// import { combineReducers } from 'redux';
+import pokemonName from './pokemonNameReducer';
+import {ajaxCallHasError, ajaxCallIsLoading, pokemonData } from './getPokemonReducer';
+import { combineReducers } from 'redux';
 
-export default {
-  pokemonNameReducer
-};
+export default combineReducers({
+  pokemonName,
+  ajaxCallHasError,
+  ajaxCallIsLoading,
+  pokemonData
+});
+
+// {
+//   pokemonNameReducer
+// };

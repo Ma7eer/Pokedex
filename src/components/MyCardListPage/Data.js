@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import Card from '../common/Card';
 
 class Data extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       pokemonCard: 'has data'
     }
-  }
 
   handleClick = (id) => {
     localStorage.removeItem(id);
@@ -32,7 +29,7 @@ class Data extends Component {
         <div>
           {
             myArr.map((val, i) =>
-              <div key ={i}>
+              <div key ={val[0]}>
                 <Card
                   id={val[0]}
                   spriteImgUrl={val[1]}

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import Data from './Data';
 class MyCardList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       storedData: localStorage.length > 0 ? 'render data' : ''
     }
-  }
 
   handleClick = () => {
     localStorage.clear();

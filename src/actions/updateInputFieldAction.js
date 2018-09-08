@@ -1,8 +1,8 @@
-import { UPDATE_INPUT_FIELD } from './actionTypes';
+import * as Types from './actionTypes';
 
 export function updateInputField(pokemonName) {
   return {
-    type: UPDATE_INPUT_FIELD,
+    type: Types.UPDATE_INPUT_FIELD,
     pokemonName
   }
 }

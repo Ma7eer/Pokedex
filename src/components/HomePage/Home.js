@@ -1,42 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { FetchPokemonData } from '../../actions/loadPokemonAction';
 
 import '../../App.css';
 import Form from './Form';
 import CardList from './CardList';
-import transformApiData from '../api/api.js';
+// import transformApiData from '../api/api.js';
 
 class Home extends Component {
-
-  state = {
-      data: [
-        {
-          spriteImgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-          id: 1,
-          name: "bulbasaur",
-          type: "poison"
-        },
-        {
-          spriteImgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-          id: 4,
-          name: "charmander",
-          type: "fire"
-        },
-        {
-          spriteImgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-          id: 7,
-          name: "squirtle",
-          type: "water"
-        }
-      ]
-    };
-
-  addNewPokemon = (pokemonInfo) => {
-    let mappedPokemonInfo = transformApiData(pokemonInfo);
-
-    this.setState(prevState => ({
-      data: prevState.data.concat(mappedPokemonInfo)
-    }));
-  };
+  addNewPokemon = (url) => {
+    this.props.fetchData(url);
+  }
 
   render() {
     return (
@@ -46,12 +21,29 @@ class Home extends Component {
           </div>
 
           <div className="container my-container">
-            <Form onSubmit={this.addNewPokemon}/>
-            <CardList data={this.state.data} />
+            <Form onSubmit={this.addNewPokemon} />
+            <CardList data={this.props.dataArray} />
           </div>
         </div>
     )
   }
 }
 
-export default Home;
+Home.propTypes = {
+  dataArray: PropTypes.array,
+  fetchData: PropTypes.func
+}
+
+function mapStateToProps(state) {
+  return {
+    dataArray: state.pokemonData
+}
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchData: (url) => dispatch(FetchPokemonData(url))
+};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

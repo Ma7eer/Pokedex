@@ -4,12 +4,10 @@ const initialState = {
   pokemonName: ''
 };
 
-export function pokemonNameReducer(state = initialState, action) {
+export default function pokemonNameReducer(state = initialState.pokemonName, action) {
   switch (action.type) {
     case UPDATE_INPUT_FIELD:
-      return {
-        pokemonName: action.pokemonName
-      };
+      return action.pokemonName;
 
     default:
       return state;
