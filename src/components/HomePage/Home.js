@@ -7,6 +7,7 @@ import { FetchPokemonData } from '../../actions/fetchPokemonAction';
 import '../../App.css';
 import Form from './Form';
 import CardList from './CardList';
+import Footer from '../Footer/Footer';
 
 class Home extends Component {
   addNewPokemon = (url) => {
@@ -25,6 +26,8 @@ class Home extends Component {
             <Form onSubmit={this.addNewPokemon} />
             <CardList data={pokemonData} />
           </div>
+
+           <Footer />
         </div>
     )
   }

@@ -12,7 +12,7 @@ const Header = () => {
 
       <li className="nav-item p-2">
         <Link to="/mycardlist" className="nav-link active">
-          Go to my list
+          My list
         </Link>
       </li>
     </ul>

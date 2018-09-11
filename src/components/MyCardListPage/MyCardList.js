@@ -13,12 +13,14 @@ class MyCardList extends Component {
 
   render() {
     return (
-      <div>
-        <h1>This is my pokemon list!</h1>
-        <div className="d-flex flex-wrap mt-4 align-items-center justify-content-center my-card">
-        { this.state.storedData !== '' ? (<Data />) : <h2>No data</h2> }
+      <div className="container my-container">
+        <h1>Scroll down to see your pokemon list!</h1>
+        <div>
+        { this.state.storedData !== '' ? (<Data />) : <h2>No data... Go to the home page and add some pokemon to your list!</h2> }
         </div>
-        <button onClick={() => this.handleClick()}>Clear all</button>
+        <button
+          onClick={() => this.handleClick()}
+          className="btn btn-danger mt-3 align-self-center">Clear all</button>
       </div>
     )
   }

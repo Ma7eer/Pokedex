@@ -6,11 +6,6 @@ class Data extends Component {
       pokemonCard: 'has data'
     }
 
-  handleClick = (id) => {
-    localStorage.removeItem(id);
-    this.setState({pokemonCard: ''})
-  }
-
   render() {
     let myArr =[],
     id, url, name, type;
@@ -25,7 +20,6 @@ class Data extends Component {
       }
   }
     return (
-      <div>
         <div>
           {
             myArr.map((val, i) =>
@@ -39,7 +33,6 @@ class Data extends Component {
               </div>
            )
           }
-      </div>
       </div>
   )
 }
