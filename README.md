@@ -2,6 +2,8 @@
 
 A Pokedex application built using React
 
+Technologies Used: React, Redux
+
 ## To launch app
 
 ```
